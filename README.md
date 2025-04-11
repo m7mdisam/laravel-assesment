@@ -1,65 +1,41 @@
 # Laravel Assignment API
 
-This is a Laravel-based API project that manages franchises, schedules, parents, and students, with proper relationships and full CRUD capabilities.
+This is a Laravel API project for managing franchises, parents, students, and schedules.
 
-## 📦 Models and Relationships
+## Features
 
-- **Franchise**
-  - Has many Parents
-  - Has many Schedules
+- CRUD operations for:
+  - Franchises
+  - Parents
+  - Students
+  - Schedules
+- Relationships:
+  - A Parent belongs to a Franchise
+  - A Student belongs to a Parent
+  - A Schedule belongs to a Franchise
 
-- **Schedule**
-  - Belongs to a Franchise
+## How to Run
 
-- **Parent**
-  - Belongs to a Franchise
-  - Has many Students
-
-- **Student**
-  - Belongs to a Parent
-
-## 🗃️ Database Setup
-
-To reset and seed the database:
-
-```bash
-php artisan migrate:fresh --seed
-```
-
-## 🔀 API Endpoints
-
-| Method | Endpoint           | Description              |
-|--------|--------------------|--------------------------|
-| GET    | /api/franchises    | List all franchises      |
-| POST   | /api/franchises    | Create a new franchise   |
-| GET    | /api/franchises/1  | Show a franchise         |
-| PUT    | /api/franchises/1  | Update a franchise       |
-| DELETE | /api/franchises/1  | Delete a franchise       |
-| (Same for `schedules`, `parents`, `students`) |
-
-## 📂 Seeded Example Data
-
-- 2 Franchises: `Downtown Branch`, `Uptown Branch`
-- 2 Schedules: `Morning Schedule`, `Evening Schedule`
-- 2 Parents: `Alice Smith`, `Bob Johnson`
-- 2 Students: `Charlie Smith`, `Daisy Smith`
-
-## 🚀 Getting Started
-
-1. Clone the repo or unzip the package.
+1. Clone the project
 2. Run `composer install`
-3. Copy `.env.example` to `.env` and set your DB credentials
+3. Copy `.env.example` to `.env` and set your database credentials
 4. Run:
-    ```bash
-    php artisan key:generate
-    php artisan migrate:fresh --seed
-    php artisan serve
-    ```
+   ```
+   php artisan key:generate
+   php artisan migrate:fresh --seed
+   php artisan serve
+   ```
 
-## 📫 API Only
+## API Endpoints
 
-This project is backend-only. No UI is included — all output is returned as JSON. Use Postman or cURL for testing.
+- `GET /api/franchises`
+- `POST /api/parents`
+- `GET /api/students`
+- `PUT /api/schedules/{id}`
+- `DELETE /api/franchises/{id}`
 
----
+All responses are returned in JSON.
 
-Made with ❤️ for educational purposes.
+## Notes
+
+- Laravel version: 10
